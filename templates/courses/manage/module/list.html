@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load course %}
+{% load static %}
 
 
 {% block title %}
@@ -7,11 +8,18 @@
 {% endblock title %}
 
 
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/module.css' %}">
+{% endblock styles %}
+    
+
+
 
 {% block content %}
     
     {% with course=module.course %}
         <h1>Course {{ course.title }}</h1>
+    <div class="main-container">
         <div class="contents">
             <h3>Modules</h3>
             <ul id="modules">
@@ -89,6 +97,7 @@
                 </li>
             </ul>
         </div>
+    </div>
     {% endwith %}
         
 {% endblock content %}

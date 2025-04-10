@@ -1,0 +1,35 @@
+.main-container {
+    display: flex;
+    gap: 20px;
+}
+
+.contents {
+    background-color: black;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.contents ul {
+    list-style-type: none;
+    padding: 0;
+}
+.contents ul li {
+    margin: 10px 0;
+}
+
+.contents ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.contents p a {
+    color: white;
+    text-decoration: none;
+}
+
+.contents ul .selected {
+    padding: 5px;
+    background-color: rgb(45, 39, 39);
+    border-radius: 5px;
+}
