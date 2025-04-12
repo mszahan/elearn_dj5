@@ -109,7 +109,7 @@ class ContentCreateUpdateView(TemplateResponseMixin, View):
     def post(self, request, module_id, model_name, id=None):
         form = self.get_form(
             self.model,
-            isinstance=self.obj,
+            instance=self.obj,
             data=request.POST,
             files=request.FILES
         )
