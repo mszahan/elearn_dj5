@@ -7,10 +7,11 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.forms.models import modelform_factory
+from braces.views import CsrfExemptMixin, JSONRequestResponseMixin
 from django.db.models import Count
 from .models import Course, Module, Content, Subject
 from .forms import ModuleFormSet
-from braces.views import CsrfExemptMixin, JSONRequestResponseMixin
+from students.forms import CourseEnrollForm
 
 
 
@@ -173,4 +174,10 @@ class CourseListView(TemplateResponseMixin, View):
 class CourseDetailView(DetailView):
     model = Course
     template_name = 'courses/course/detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['enroll_form'] = CourseEnrollForm(initial={'course':self.object})
+        return context
+    
     
