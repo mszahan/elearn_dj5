@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 import os
+from django.urls import reverse_lazy
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.abspath(os.path.join(__file__, os.pardir)))
@@ -43,6 +44,9 @@ INSTALLED_APPS = [
     #local
     'courses',
     'students',
+
+    #third party
+    'embed_video',
 ]
 
 MIDDLEWARE = [
@@ -137,6 +141,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+LOGIN_REDIRECT_URL = reverse_lazy('student_course_list')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
