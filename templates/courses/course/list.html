@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 
 {% block title %}
@@ -12,6 +13,10 @@
 {% endblock title %}
 
 
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/course_list.css' %}">
+{% endblock styles %}
+    
 
 {% block content %}
     <h1>
